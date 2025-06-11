@@ -7,7 +7,23 @@ demo_url: "https://yourproject.com"
 featured: true
 status: "completed"  # completed, in-progress, planned
 date: 2024-01-15
+
+# Image configuration
+thumbnail: "/assets/images/projects/example-project-thumb.jpg"  # For project cards
+hero_image: "/assets/images/projects/example-project-hero.jpg"  # Large hero image
+screenshots:
+  - "/assets/images/projects/slai.png"
+
+# Optional: Alt text for accessibility
+thumbnail_alt: "Screenshot of the project's main interface"
+hero_alt: "Hero image showing the project in action"
 ---
+
+{% if page.hero_image %}
+<div class="project-hero">
+  <img src="{{ page.hero_image }}" alt="{{ page.hero_alt | default: page.title }}" class="hero-image">
+</div>
+{% endif %}
 
 <div class="project-meta">
   <h4>Project Details</h4>
@@ -40,6 +56,18 @@ The main goal was to create a scalable, maintainable solution that could handle 
 - **Feature 3**: Database design with optimized queries
 - **Feature 4**: Responsive design that works across devices
 - **Feature 5**: Comprehensive test coverage
+
+{% if page.screenshots and page.screenshots.size > 0 %}
+## Screenshots
+
+<div class="screenshot-gallery">
+  {% for screenshot in page.screenshots %}
+  <div class="screenshot-item">
+    <img src="{{ screenshot }}" alt="Screenshot of {{ page.title }}" class="screenshot">
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
 
 ## Technical Implementation
 

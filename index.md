@@ -18,15 +18,31 @@ layout: home
   {% if featured_projects.size > 0 %}
     {% for project in featured_projects %}
       <div class="project-card">
-        <h3><a href="{{ project.url }}">{{ project.title }}</a></h3>
-        <p>{{ project.description }}</p>
-        {% if project.tech_stack %}
-          <p class="tech-stack">
-            {% for tech in project.tech_stack %}
-              <span class="tech-tag">{{ tech }}</span>
-            {% endfor %}
-          </p>
+        {% if project.thumbnail %}
+        <div class="project-thumbnail">
+          <a href="{{ project.url }}">
+            <img src="{{ project.thumbnail }}" alt="{{ project.thumbnail_alt | default: project.title }}" loading="lazy">
+          </a>
+          {% if project.status %}
+          <span class="project-status status-{{ project.status }}">{{ project.status | capitalize }}</span>
+          {% endif %}
+        </div>
         {% endif %}
+        
+        <div class="project-content">
+          <h3><a href="{{ project.url }}">{{ project.title }}</a></h3>
+          <p>{{ project.description }}</p>
+          {% if project.tech_stack %}
+            <p class="tech-stack">
+              {% for tech in project.tech_stack limit:3 %}
+                <span class="tech-tag">{{ tech }}</span>
+              {% endfor %}
+              {% if project.tech_stack.size > 3 %}
+                <span class="tech-tag more">+{{ project.tech_stack.size | minus: 3 }} more</span>
+              {% endif %}
+            </p>
+          {% endif %}
+        </div>
       </div>
     {% endfor %}
   {% else %}

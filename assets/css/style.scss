@@ -28,6 +28,27 @@
   }
 }
 
+// Page header styles
+.page-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: #2c3e50;
+    margin-bottom: 0.75rem;
+  }
+  
+  .page-description {
+    font-size: 1.1rem;
+    color: #6c757d;
+    font-weight: 300;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
 // Section styling
 section {
   margin: 4rem 0;
@@ -82,7 +103,7 @@ section {
 }
 
 // Enhanced project grid
-.project-grid {
+.project-grid, .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
@@ -92,11 +113,12 @@ section {
 .project-card {
   border: 1px solid #e8e8e8;
   border-radius: 12px;
-  padding: 2rem;
   background: #fff;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
   
   &::before {
     content: '';
@@ -118,7 +140,67 @@ section {
     &::before {
       transform: scaleX(1);
     }
+    
+    .project-thumbnail img {
+      transform: scale(1.05);
+    }
   }
+}
+
+// Project thumbnail styles
+.project-thumbnail {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+  background: #f8f9fa;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  a {
+    display: block;
+    height: 100%;
+  }
+}
+
+// Project status badge
+.project-status {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  
+  &.status-completed {
+    background: rgba(40, 167, 69, 0.9);
+    color: white;
+  }
+  
+  &.status-in-progress {
+    background: rgba(255, 193, 7, 0.9);
+    color: #333;
+  }
+  
+  &.status-planned {
+    background: rgba(108, 117, 125, 0.9);
+    color: white;
+  }
+}
+
+// Project content area
+.project-content {
+  padding: 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   
   h3 {
     margin-top: 0;
@@ -138,10 +220,42 @@ section {
     }
   }
   
-  p {
-    margin-bottom: 1.25rem;
+  .project-description {
+    margin-bottom: 1.5rem;
     color: #6c757d;
     line-height: 1.6;
+    flex: 1;
+  }
+}
+
+// Project footer with date and links
+.project-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid #f1f3f4;
+  
+  .project-date {
+    font-size: 0.9rem;
+    color: #6c757d;
+    font-style: italic;
+  }
+  
+  .project-links-mini {
+    display: flex;
+    gap: 0.75rem;
+    
+    a {
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: transform 0.2s ease;
+      
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
   }
 }
 
@@ -165,6 +279,55 @@ section {
     background: linear-gradient(135deg, $brand-color, lighten($brand-color, 10%));
     color: white;
     transform: translateY(-1px);
+  }
+  
+  &.more {
+    background: #6c757d;
+    color: white;
+    font-size: 0.75rem;
+    
+    &:hover {
+      background: darken(#6c757d, 10%);
+    }
+  }
+}
+
+// Project hero image
+.project-hero {
+  margin: -2rem -2rem 2rem -2rem;
+  overflow: hidden;
+  border-radius: 12px 12px 0 0;
+  
+  .hero-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+// Screenshot gallery
+.screenshot-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+  
+  .screenshot-item {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+    
+    &:hover {
+      transform: scale(1.02);
+    }
+    
+    .screenshot {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
   }
 }
 
@@ -273,6 +436,12 @@ section {
   }
 }
 
+// Image optimization and responsiveness
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 // Responsive adjustments
 @media (max-width: 768px) {
   .hero-section {
@@ -294,14 +463,27 @@ section {
     gap: 0.25rem;
   }
   
-  .project-grid {
+  .project-grid, .projects-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
     margin: 2rem 0;
   }
   
-  .project-card {
+  .project-content {
     padding: 1.5rem;
+  }
+  
+  .project-hero {
+    margin: -1.5rem -1.5rem 1.5rem -1.5rem;
+    
+    .hero-image {
+      height: 200px;
+    }
+  }
+  
+  .screenshot-gallery {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
   
   .project-links {
@@ -310,6 +492,12 @@ section {
     a {
       text-align: center;
     }
+  }
+  
+  .project-footer {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
   }
 }
 
@@ -332,13 +520,25 @@ section {
     border-color: #4a5568;
     color: #e2e8f0;
     
-    h3 a {
+    .project-content h3 a {
       color: #e2e8f0;
     }
     
-    p {
+    .project-description {
       color: #a0aec0;
     }
+    
+    .project-footer {
+      border-color: #4a5568;
+      
+      .project-date {
+        color: #a0aec0;
+      }
+    }
+  }
+  
+  .project-thumbnail {
+    background: #4a5568;
   }
   
   .tech-tag {
@@ -356,6 +556,16 @@ section {
     border-color: #4a5568;
     
     p {
+      color: #a0aec0;
+    }
+  }
+  
+  .page-header {
+    h1 {
+      color: #e2e8f0;
+    }
+    
+    .page-description {
       color: #a0aec0;
     }
   }
