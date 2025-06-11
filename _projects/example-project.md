@@ -9,8 +9,8 @@ status: "completed"  # completed, in-progress, planned
 date: 2024-01-15
 
 # Image configuration
-thumbnail: "/assets/images/projects/example-project-thumb.jpg"  # For project cards
-hero_image: "/assets/images/projects/example-project-hero.jpg"  # Large hero image
+thumbnail: "/assets/images/projects/slai-header.png"  # For project cards
+hero_image: "/assets/images/projects/slai-header.png"  # Large hero image
 screenshots:
   - "/assets/images/projects/slai.png"
 
