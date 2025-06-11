@@ -1,16 +1,51 @@
 title: August Tollerup
 description: Bookmark this to keep an eye on my project updates!
+url: "https://4ug-aug.github.io"  # Your GitHub Pages URL
+baseurl: ""  # Leave empty for main GitHub Pages site
+
+# Author information
+author:
+  name: August Tollerup
+  email: your-email@example.com  # Optional, update with your email
+  bio: "Developer who loves building things and sharing what I learn."
+  location: "Your Location"  # Optional
+  avatar: "/assets/images/avatar.jpg"  # Optional, add your photo
+
+# Theme settings
 theme: jekyll-theme-minima
+minima:
+  # Choose a skin: "classic" (default), "dark", "auto", "solarized", "solarized-light", "solarized-dark"
+  skin: classic
+  
+  # Date format for posts
+  date_format: "%B %-d, %Y"
+  
+  # Social links in footer
+  social_links:
+    github: 4ug-aug  # Your GitHub username
+    twitter: your_twitter  # Optional, replace with your handle
+    linkedin: your_linkedin  # Optional, replace with your LinkedIn
+    # Add other social platforms as needed
+  
+  # Show excerpts on home page
+  show_excerpts: true
+
+# Build settings
 lsi: false
 safe: true
 source: 4ug-aug.github.io
 incremental: false
 highlighter: rouge
-gist:
-  noscript: false
+markdown: kramdown
 kramdown:
   math_engine: mathjax
   syntax_highlighter: rouge
+  input: GFM
+  hard_wrap: false
+
+# Gist settings
+gist:
+  noscript: false
 
 # Collections
 collections:
@@ -18,21 +53,78 @@ collections:
     output: true
     permalink: /projects/:name/
 
-# Navigation
+# Navigation pages
 header_pages:
   - about.md
   - blog.md
   - projects.md
 
-# Defaults
+# Defaults for different content types
 defaults:
+  # Posts defaults
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author_profile: true
+      read_time: true
+      comments: false  # Set to true if you want comments
+      share: true
+      related: true
+      show_date: true
+  
+  # Pages defaults  
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+      author_profile: false
+  
+  # Projects defaults
   - scope:
       path: "_projects"
       type: "projects"
     values:
-      layout: "project"
-  - scope:
-      path: "_posts"
-      type: "posts"
-    values:
-      layout: "post"
+      layout: "page"
+      author_profile: true
+      share: true
+      show_date: true
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# SEO settings
+lang: en_US
+title_separator: "|"
+
+# Optional: Google Analytics (uncomment and add your tracking ID)
+# google_analytics: "G-XXXXXXXXXX"
+
+# Optional: Comments via Disqus (uncomment and add your shortname)
+# disqus:
+#   shortname: "your-disqus-shortname"
+
+# Feed settings
+feed:
+  posts_limit: 20
+  excerpt_only: false
+
+# Pagination (if you want to paginate your blog)
+paginate: 10
+paginate_path: /blog/page:num/
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
