@@ -6,10 +6,8 @@ baseurl: ""  # Leave empty for main GitHub Pages site
 # Author information
 author:
   name: August Tollerup
-  email: your-email@example.com  # Optional, update with your email
-  bio: "Developer who loves building things and sharing what I learn."
-  location: "Your Location"  # Optional
-  avatar: "/assets/images/avatar.jpg"  # Optional, add your photo
+  email: slaloms.pry_9r@icloud.com  # Optional, update with your email
+  # avatar: "/assets/images/avatar.jpg"  # Optional, add your photo
 
 # Theme settings
 theme: minima
@@ -23,8 +21,7 @@ minima:
   # Social links in footer
   social_links:
     github: 4ug-aug  # Your GitHub username
-    twitter: your_twitter  # Optional, replace with your handle
-    linkedin: your_linkedin  # Optional, replace with your LinkedIn
+    linkedin: https://www.linkedin.com/in/august-tollerup-b51b01180/  # Optional, replace with your LinkedIn
     # Add other social platforms as needed
   
   # Show excerpts on home page
