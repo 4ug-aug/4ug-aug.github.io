@@ -11,3 +11,28 @@ gist:
 kramdown:
   math_engine: mathjax
   syntax_highlighter: rouge
+
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+# Navigation
+header_pages:
+  - about.md
+  - blog.md
+  - projects.md
+
+# Defaults
+defaults:
+  - scope:
+      path: "_projects"
+      type: "projects"
+    values:
+      layout: "project"
+  - scope:
+      path: "_posts"
+      type: "posts"
+    values:
+      layout: "post"
