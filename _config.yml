@@ -12,7 +12,7 @@ author:
   avatar: "/assets/images/avatar.jpg"  # Optional, add your photo
 
 # Theme settings
-theme: jekyll-theme-minima
+theme: minima
 minima:
   # Choose a skin: "classic" (default), "dark", "auto", "solarized", "solarized-light", "solarized-dark"
   skin: classic
@@ -121,6 +121,8 @@ paginate_path: /blog/page:num/
 # Exclude files from processing
 exclude:
   - README.md
+  - Gemfile
+  - Gemfile.lock
   - node_modules
   - vendor/bundle/
   - vendor/cache/
