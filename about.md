@@ -23,8 +23,6 @@ I believe in learning by doing and sharing knowledge with the community. Whether
 Feel free to reach out if you want to discuss any of my projects, have questions about my blog posts, or just want to connect!
 
 - GitHub: [@4ug-aug](https://github.com/4ug-aug)
-- Email: [your-email@example.com](mailto:your-email@example.com)
+- Email: [slaloms.pry_9r@icloud.com](mailto:slaloms.pry_9r@icloud.com)
 
 ---
-
-*This site is built with Jekyll using the Minima theme and hosted on GitHub Pages.* 
